@@ -1,0 +1,54 @@
+@page
+@model FirstWebApp.Pages.Employees.AddEmployee
+@{}
+
+
+<div class="row">
+    <div class="col-lg-7 mx-auto border shadow p-5">
+        <h2 class="mb-5 text-center">Add Employee</h2>
+        <hr />
+
+        <form method="post">
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label" asp-for="employee.Name">Name</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" name="name" asp-for="employee.Name">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label" asp-for="employee.Surname">Surname</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" name="surname" asp-for="employee.Surname">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label" asp-for="employee.Departament">Departament</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" name="departament" asp-for="employee.Departament">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label" asp-for="employee.BaseSalary">Base salary</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="number" name="basesalary" asp-for="employee.BaseSalary">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label" asp-for="employee.MonthlyBonus">Monthly bonus</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="number" name="monthlybonus"asp-for="employee.MonthlyBonus">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="offset-sm-4" col-sm-8">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
