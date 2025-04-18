@@ -9,12 +9,12 @@ namespace FirstWebApp.Models
     public class Employee
     {
         public Guid Id {get; set;} = Guid.NewGuid();
-        public string? Name {get; set;} = null;
-        public string? Surname {get; set;} = null;
-        public string? Departament {get; set;} = null;
-        public int? BaseSalary {get; set;} = null;
+        public string? Name {get; set;} = "";
+        public string? Surname {get; set;} = "";
+        public string? Departament {get; set;} = "";
+        public int BaseSalary {get; set;} = 0;
         [Precision(16, 2)]
-        public double? MonthlyBonus {get; set;} = null;
+        public double MonthlyBonus {get; set;} = 0;
         public DateTime CreatedAtUtc {get; set;} = DateTime.UtcNow;
     }
 }

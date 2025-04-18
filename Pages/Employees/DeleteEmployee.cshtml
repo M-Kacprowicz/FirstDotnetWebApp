@@ -1,0 +1,40 @@
+@page
+@model FirstWebApp.Pages.Employees.DeleteEmployee
+@{
+    ViewData["Title"] = "Delete Employee";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Departament</th>
+        <th>Base Salary</th>
+        <th>Monthly Bonus</th>
+        <th>Created At</th>
+    </tr>
+
+    <tr>
+        <td>@Model.Employee.Id</td>
+        <td>@Model.Employee.Name</td>
+        <td>@Model.Employee.Surname</td>
+        <td>@Model.Employee.Departament</td>
+        <td>@(Model.Employee.BaseSalary)$</td>
+        <td>@(Model.Employee.MonthlyBonus)$</td>
+        <td>@Model.Employee.CreatedAtUtc</td>
+    </tr>
+</table>
+
+<form method="post">
+    <div class="row" align="center">
+        <div class="col" align="right">
+            <button type="submit" class="btn btn-primary" asp-page-handler="Delete">Delete</button>
+        </div>
+        <div class="col" align="left">
+            <button type="submit" class="btn btn-primary" asp-page-handler="Cancel">Cancel</button>
+        </div>
+    </div>
+</form>

@@ -1,10 +1,19 @@
 @page
+@using Newtonsoft.Json
 @model FirstWebApp.Pages.Employees.EmployeesTable
 @{
     ViewData["Title"] = "Employees";
 }
 
 <h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div class="row" align="right">
+        <div>
+            <button type="submit" class="btn btn-primary" asp-page-handler="AddEmployee">Add employee</button>
+        </div>
+    </div>
+</form>
 
 <table class="table">
     <tr>
@@ -15,10 +24,12 @@
         <th>Base Salary</th>
         <th>Monthly Bonus</th>
         <th>Created At</th>
+        <th>Actions</th>
     </tr>
 
     @foreach(var employee in Model.EmployeesList)
     {
+        Dictionary<string, string> dictEmployees = new Dictionary<string, string> { {"passedObject", JsonConvert.SerializeObject(employee)} };
         <tr>
             <td>@employee.Id</td>
             <td>@employee.Name</td>
@@ -27,6 +38,7 @@
             <td>@(employee.BaseSalary)$</td>
             <td>@(employee.MonthlyBonus)$</td>
             <td>@employee.CreatedAtUtc.ToString("dd/MM/yyyy")</td>
+            <td><a asp-page="./DeleteEmployee" asp-all-route-data="dictEmployees"><button type="submit" class="btn btn-primary">Delete employee</button></a></td>
         </tr>
     }
 </table>

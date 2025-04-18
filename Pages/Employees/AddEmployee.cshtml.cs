@@ -6,6 +6,7 @@ using FirstWebApp.Models;
 using FirstWebApp.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace FirstWebApp.Pages.Employees
@@ -25,13 +26,11 @@ namespace FirstWebApp.Pages.Employees
         }
 
         [BindProperty]
-        public Employee employee {get; set;}
+        public Employee Employee {get; set;} = new Employee();
 
         public async Task<IActionResult> OnPostAsync()
         {
-            // employee.Id = Guid.NewGuid();
-            // employee.CreatedAtUtc = DateTime.UtcNow;
-            context.Employees.Add(employee);
+            context.Employees.Add(Employee);
             await context.SaveChangesAsync();
 
             return RedirectToPage("./EmployeesTable");

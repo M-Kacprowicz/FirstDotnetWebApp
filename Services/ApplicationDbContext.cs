@@ -12,6 +12,7 @@ namespace FirstWebApp.Services
         public ApplicationDbContext(DbContextOptions options) : base(options) {}
 
         public DbSet<Employee> Employees {get; set;}
+    
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             var employee_one = new Employee() {Id = Guid.NewGuid(), Name = "Jan", Surname = "Kowalski", Departament = "IT", BaseSalary = 5000,

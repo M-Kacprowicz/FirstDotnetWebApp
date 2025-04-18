@@ -6,6 +6,7 @@ using FirstWebApp.Models;
 using FirstWebApp.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace FirstWebApp.Pages.Employees
@@ -22,7 +23,12 @@ namespace FirstWebApp.Pages.Employees
 
         public void OnGet()
         {
-            EmployeesList = context.Employees.ToList();
+            EmployeesList = context.Employees.OrderBy(c => c.CreatedAtUtc).ToList();
+        }
+
+        public IActionResult OnPostAddEmployee()
+        {
+            return RedirectToPage("./AddEmployee");
         }
     }
 }
